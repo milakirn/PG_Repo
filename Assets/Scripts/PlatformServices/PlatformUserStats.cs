@@ -4,9 +4,9 @@ namespace PlatformServices
 {
     public static class PlatformUserStats
     {
-        static IPlatformUserStats platform;
+        private static IPlatformUserStats platform;
 
-        [RuntimeInitializeOnLoadMethod]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void Initialize()
         {
 #if !DISABLESTEAMWORKS
@@ -45,8 +45,10 @@ namespace PlatformServices
     {
         public bool SetAchievement(string achievementId)
         {
-            throw new System.NotImplementedException();
+            Social.ReportProgress("achievementId", 100f, null);
+            return true; //Fake
         }
     }
+
 #endif
 }

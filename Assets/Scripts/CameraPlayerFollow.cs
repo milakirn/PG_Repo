@@ -5,7 +5,7 @@ public class CameraPlayerFollow : MonoBehaviour
 {
     [SerializeField] private Vector3 offset;
 
-    private void Awake()
+    private void Start()
     {
         PlatformUserStats.SetAchievement("cameraControlled");
     }
