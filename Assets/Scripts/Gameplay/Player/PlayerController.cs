@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PlatformServices;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
         Instance = this;
         characterController = GetComponent<CharacterController>();
+        PlatformUserStats.SetAchievement("playerControlled");
     }
 
     private void OnEnable()
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
         if (SprintSkill.IsActive && playerInput.FindAction("Sprint").ReadValue<float>() > 0f && StaminaVariable.Value > 0)
         {
+            PlatformUserStats.SetAchievement("staminaUsing");
             movementValue *= sprintModificator;
             StaminaVariable.Value -= staminaUse * Time.deltaTime;
         }

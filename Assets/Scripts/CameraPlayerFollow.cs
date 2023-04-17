@@ -1,10 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using PlatformServices;
 using UnityEngine;
 
 public class CameraPlayerFollow : MonoBehaviour
 {
-    [SerializeField] Vector3 offset;
+    [SerializeField] private Vector3 offset;
+
+    private void Start()
+    {
+        PlatformUserStats.SetAchievement("cameraControlled");
+    }
 
     private void LateUpdate()
     {
