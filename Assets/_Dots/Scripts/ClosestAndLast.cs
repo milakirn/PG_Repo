@@ -1,10 +1,10 @@
-namespace _Game.JobsScripts
+namespace Dots.JobsScripting
 {
-    public struct ClosestAndFarthest
+    public struct ClosestAndLast
     {
         public int first;
         public int second;
         public int third;
-        public int farthest;
+        public int last;
     }
 }
